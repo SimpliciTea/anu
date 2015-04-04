@@ -9,6 +9,9 @@
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js" type="text/javascript"></script>
+	<script src="js/jquery-ui.min.js" type="text/javascript"></script>
 </head>
 
 
@@ -21,9 +24,9 @@
 			<p class="quote">"And we should consider every day lost<br>on which we have not danced <br> at least once...."<span class="quote-attribution"> -- Friedrich Nietzsche</span></p>
 
 			<ul id="nav">
-				<li><a href="#">About Alapadma</a></li>
-				<li><a href="#">Class Information</a></li>
-				<li><a href="#">Contact Us</a></li>
+				<li><a href="#" id="link-about">About Alapadma</a></li>
+				<li><a href="#" id="link-information">Class Information</a></li>
+				<li><a href="#" id="link-contact">Contact Us</a></li>
 			</ul>
 		</div>
 		<!-- end left nav column -->
@@ -34,5 +37,13 @@
 		</div>
 	</div>
 
+
+	<!-- begin post-render scripts -->
+	<script>
+		$('#link-about, #link-information, #link-contact').click(function () {
+			$('#col-right-content').show('clip', 300);
+		})
+	</script>
+	<!-- end post-render scripts -->
 </body>
 </html>
