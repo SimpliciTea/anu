@@ -20,7 +20,7 @@
 		
 		<!-- begin left nav column -->	
 		<div id="col-left-nav">
-			<h1>Anu Samrat</h1>
+			<a href="#" id="title"><h1>Anu Samrat</h1></a>
 			<p class="quote">"And we should consider every day lost<br>on which we have not danced <br> at least once...."<span class="quote-attribution"> -- Friedrich Nietzsche</span></p>
 
 			<ul id="nav">
@@ -41,7 +41,11 @@
 	<!-- begin post-render scripts -->
 	<script>
 		$('#link-about, #link-information, #link-contact').click(function () {
-			$('#col-right-content').show('clip', 300);
+			$('#col-right-content').show('clip', 200);
+		});
+
+		$('#title').click(function () {
+			$('#col-right-content').hide('clip', 200);
 		})
 	</script>
 	<!-- end post-render scripts -->
