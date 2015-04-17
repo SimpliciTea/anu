@@ -24,8 +24,8 @@
 			<p class="quote">"And we should consider every day lost<br>on which we have not danced <br> at least once...."<span class="quote-attribution"> -- Friedrich Nietzsche</span></p>
 
 			<ul id="nav">
-				<li><a href="#" id="link-about">About Alapadma</a></li>
-				<li><a href="#" id="link-information">Class Information</a></li>
+				<li><a href="#" id="link-about">About</a></li>
+				<li><a href="#" id="link-class">Class Information</a></li>
 				<li><a href="#" id="link-contact">Contact Us</a></li>
 			</ul>
 		</div>
@@ -33,20 +33,176 @@
 
 
 		<!-- begin right content column -->
-		<div id="col-right-content">
+		<div id="col-right-content" class="hidden">
+			<div id="dance-images">
+				<img src="images/black2.jpg">
+				<img src="images/black1.jpg">
+			</div>
+			<div id="content-container">
+					
+				<div id="pagebreak-doodad">
+					<img id="doodad" src='http://www.clker.com/cliparts/m/T/w/2/4/p/fancy-white-line-break-hi.png' />
+				</div>
+
+				<!-- begin about content -->
+				<div id="content-about" class="hidden section">
+
+					<div class="content-nav">
+						<ul>
+							<a href="#"><li id="link-about-dance" class="nav active">Dance</li></a>
+							<a href="#"><li id="link-about-alapadma" class="nav">Alapadma</li></a>
+							<a href="#"><li id="link-about-anu" class="nav">About Me</li></a>
+						</ul>
+					</div>
+				
+
+					<!-- begin dance info content -->
+					<div id="about-dance" class="content active">
+						<h2>Mohiniyattam</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie arcu sem, at mattis ligula tincidunt sed. Nam euismod aliquam eros, ac sodales lacus cursus quis. Vivamus ultricies felis bibendum mauris ullamcorper, sed commodo felis tincidunt. Nam convallis elit eu ornare ornare. Etiam in lectus a ligula dictum luctus eget et dolor. Cras ut sollicitudin lectus. Ut elementum at nunc at volutpat. Fusce molestie diam quis nisl sagittis bibendum. Donec ac vestibulum nulla, vel consequat felis. Curabitur ut risus viverra enim varius cursus.</p>	
+
+						<h2>Bharatanatyam</h2>
+						<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam ut imperdiet turpis. Integer fermentum lacus nunc, a sodales velit volutpat id. Duis et sagittis nisi, eget maximus sem. Duis arcu est, posuere non justo nec, dignissim posuere risus. Quisque pretium venenatis sagittis. Nunc et cursus turpis. Donec volutpat nisl eros, varius rhoncus dolor eleifend quis. Integer volutpat elit nec metus iaculis, quis efficitur ligula molestie. Cras pretium, urna vitae facilisis rutrum, lectus est vulputate tortor, eget faucibus orci augue et felis. Donec nibh ex, porttitor vitae orci vitae, hendrerit facilisis magna. Curabitur tincidunt congue nisi ac malesuada. Sed at auctor quam, nec interdum mauris. Aenean velit augue, feugiat nec tellus vel, dignissim malesuada nisl.</p>
+					</div>
+
+					<!-- begin alapadma info content -->
+					<div id="about-alapadma" class="content hidden">
+						<h2>Alapadma</h2>
+						<p>Under Construction</p>
+					</div>
+
+					<!-- begin about me info content -->
+					<div id="about-anu" class="content hidden">
+						<h2>About Anu</h2>
+						<p>Under Construction</p>
+					</div>
+				</div>
+				<!-- End ABOUT content divs -->
+
+
+				<!-- begin class info content -->
+				<div id="content-class" class="hidden section">
+					<div class="content">
+						<h2>Class Information</h2>
+						<p>Under Construction</p>
+					</div>
+				</div>	
+
+				<!-- begin contact info content -->
+				<div id="content-contact" class="hidden section">
+					<div class="content">
+						<h2>Contact Information</h2>
+						<p>Under Construction</p>
+					<div class="content">
+				</div>
+			</div>
 		</div>
+		<!-- right col content div end -->
 	</div>
 
 
 	<!-- begin post-render scripts -->
 	<script>
-		$('#link-about, #link-information, #link-contact').click(function () {
+		
+		/*
+		 *
+		 * Functions to close open tabs/sections
+		 *
+		 */
+
+		var closeActiveTab = function () {
+			$('.active').each( function () {
+				if ($(this).hasClass('nav')) {
+					$(this).removeClass('active');
+				};
+				
+				if ($(this).hasClass('content')) {
+					$(this).removeClass('active').addClass('hidden').hide();
+				};
+			})
+		};
+
+		var closeActiveSection = function () {
+			$('.active').each( function () {
+				if ($(this).hasClass('section')) {
+					$(this).removeClass('active').addClass('hidden').hide();
+				};
+			});
+		};			
+		
+		
+		/*
+		 *
+		 * Main nav link JS handlers
+		 * 
+		 */
+
+		// show main content area
+		$('#link-about, #link-class, #link-contact').click(function () {
 			$('#col-right-content').show('clip', 200);
+		});
+
+		
+		// show specific content sections
+		$('#link-about').click(function () {
+			if ($('#content-about').hasClass('hidden')) {
+				closeActiveSection();
+				$('#content-about').addClass('active').removeClass('hidden').show();
+			};
+		});
+
+		
+		$('#link-class').click(function () {
+			if ($('#content-class').hasClass('hidden')) {
+				closeActiveSection();
+				$('#content-class').addClass('active').removeClass('hidden').show();
+			};
+		});
+
+
+		$('#link-contact').click(function () {
+			if ($('#content-contact').hasClass('hidden')) {
+				closeActiveSection();
+				$('#content-contact').addClass('active').removeClass('hidden').show();
+			};
 		});
 
 		$('#title').click(function () {
 			$('#col-right-content').hide('clip', 200);
 		})
+
+
+		/*
+		 *
+		 * About tab nav link handlers
+		 *
+		 */
+
+		$('#link-about-dance').click(function () {
+			if ($('#about-dance').hasClass('hidden')) {
+				closeActiveTab();
+				$('#about-dance').removeClass('hidden').addClass('active').show();
+				$('#link-about-dance').addClass('active');
+			};
+		});
+
+		$('#link-about-alapadma').click(function () {
+			if ($('#about-alapadma').hasClass('hidden')) {
+				closeActiveTab();
+				$('#about-alapadma').removeClass('hidden').addClass('active').show();
+				$('#link-about-alapadma').addClass('active');
+			};
+		})
+
+		$('#link-about-anu').click(function () {
+			if ($('#about-anu').hasClass('hidden')) {
+				closeActiveTab();	
+				$('#about-anu').removeClass('hidden').addClass('active').show();
+				$('#link-about-anu').addClass('active');
+			};
+		})
+
+
 	</script>
 	<!-- end post-render scripts -->
 </body>
